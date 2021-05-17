@@ -1,7 +1,8 @@
 import { types } from '@babel/core';
 
 import React, { useEffect, useState } from 'react'
-import { FlatList, StyleSheet, View, Image, Text } from 'react-native';
+import { FlatList, StyleSheet, View, Image } from 'react-native';
+import {Text} from 'react-native-paper';
 import { Checkbox, FAB } from 'react-native-paper';
 
 import ItemList from '../components/ItemList';
@@ -52,23 +53,30 @@ const SignInScene: React.FC<any> = ({ navigation }) => {
 
     useEffect(() => {
         if (initializing == false && user != null) {
-            navigation.navigate("Main", {
-                screen: "Main",
+            navigation.reset({
+                index: 0,
+                routes: [{name: "Main"}],
             });
         }
     }, [initializing, user])
 
     const onSignInButtonClick = () => {
         if (initializing == false && user != null) {
-            navigation.navigate("Main", {
-                screen: "Main",
+            navigation.reset({
+                index: 0,
+                routes: [{name: "Main"}],
             });
         }
     }
 
     return (
-        <View>
-            <GoogleSignInButton onClick={onSignInButtonClick} />
+        <View >
+            <Text style={{fontSize: 250, textAlign: "center", zIndex: -1}}>V3</Text>
+            <Text style={{fontSize: 11, textAlign: "center", color: "#444444"}}>Veni, vidi, vici</Text>
+            <Text style={{fontSize: 16, textAlign: "center"}}>Keep track of your entertainment collections!</Text>
+            <View style={{alignSelf: 'center', justifyContent: "center", height:"50%"}}>
+                <GoogleSignInButton onClick={onSignInButtonClick} />
+            </View>
         </View>
     );
 

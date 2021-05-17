@@ -3,6 +3,7 @@ import { Button } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { FAB } from 'react-native-paper';
 
 
 interface IProps
@@ -35,13 +36,12 @@ const GoogleSignInButton : React.FC<IProps> = (props : any) => {
             }).catch((e) => console.log(e));
         }
 
-
         return creds;
     }
 
     return (
         <Button
-            title="Google Sign-In"
+            title="Sign in with Google"
             onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!')).catch((e) => console.log(e))}
         />
     );
