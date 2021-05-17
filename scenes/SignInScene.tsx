@@ -40,7 +40,7 @@ const SignInScene: React.FC<any> = ({ navigation }) => {
             let profileData = await firestore().collection('users').doc(user.uid).get();
             if (profileData.exists == false) {
                 firestore().collection('users').doc(user.uid).set({
-                    name: "hehe"
+                    name: user.displayName
                 }).catch((e) => console.log(e));
             }
         }

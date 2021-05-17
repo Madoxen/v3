@@ -32,7 +32,7 @@ const GoogleSignInButton : React.FC<IProps> = (props : any) => {
         {
             let userDocRef = firestore().collection('users').doc(creds.user.uid);
             userDocRef.set({
-                name: "hehe"
+                name: creds.user.displayName
             }).catch((e) => console.log(e));
         }
 
